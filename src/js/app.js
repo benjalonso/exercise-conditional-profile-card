@@ -1,3 +1,4 @@
+import { left, right } from "@popperjs/core";
 import "../style/index.css";
 
 /**
@@ -29,18 +30,40 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  if (variables.socialMediaPosition == `position-left`)
+    variables.socialMediaPosition = "position-left";
+  else variables.socialMediaPosition = "position-right";
+
+  if (variables.name == null) variables.name = "Benjamín ";
+  if (variables.lastname == null) variables.lastname = "Larenas";
+
+  if (variables.role == null) variables.role = `Web Developer`;
+
+  if (variables.country == null) variables.country = `Germany`;
+
+  if (variables.city == null) variables.city = `Munich`;
+
+  if (variables.twitter == null) variables.twitter = "Tordolarenas";
+
+  if (variables.github == null) variables.github = "benjalonso";
+
+  if (variables.linkedin == null)
+    variables.linkedin = "benjamín-alonso-larenas-bravo-23129220a";
+
+  if (variables.instagram == null) variables.instagram = "curaeus__curaeus";
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${variables.name}${variables.lastname}</h1>
+          <h2>${variables.role}</h2>
+          <h3>${variables.city}, ${variables.country}</h3>
+          <ul class="${variables.socialMediaPosition}">
+            <li><a href="https://twitter.com/${variables.twitter}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${variables.github}" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/${variables.linkedin}/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/${variables.instagram}/" target="_blank"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -54,11 +77,11 @@ window.onload = function() {
     // if includeCover is true the algorithm should
     includeCover: true,
     // this is the url of the image that will used as background for the profile cover
-    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
+    background: "https://i.ibb.co/7Q7b2Gc/IMG-20200114-210050.jpg",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL: "https://i.ibb.co/Qbdtdc4/IMG-20220309-142716.jpg",
     // social media bar position (left or right)
-    socialMediaPosition: "position-left",
+    socialMediaPosition: "position-right",
     // social media usernames
     twitter: null,
     github: "alesanchezr",
